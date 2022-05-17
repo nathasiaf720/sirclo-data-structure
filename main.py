@@ -1,7 +1,12 @@
-import json
+import ast
 class Cart:
     def __init__(self):
         self.cart={}
+        file = open("data.txt", "r")
+        line = file.read()
+        file.close()
+        test= ast.literal_eval(str(line))
+        self.cart=test
 
     def tambahProduk(self, kodeProduk, kuantitas):
         if kodeProduk in self.cart:
@@ -48,7 +53,6 @@ def main():
             shoppingCart.hapusProduk(kodeProduk)
         elif pilihan==3:
             print('\nTampilkan Produk')
-            print(shoppingCart.cart)
             shoppingCart.tampilkanCart()
             print()
         elif pilihan!=4:
