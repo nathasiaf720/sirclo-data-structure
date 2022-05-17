@@ -25,6 +25,9 @@ class Cart:
     def hapusProduk(self, kodeProduk):
         if kodeProduk in self.cart:
             del self.cart[kodeProduk]
+            file = open("data.txt", "w")
+            file.write(str(self.cart))
+            file.close()
         else:
             print(kodeProduk,'was not found in shopping cart')
 
